@@ -17,6 +17,9 @@ class MessageTraceResults {
     [string]$RecipientAddress
     [string]$Subject
     [string]$Status
+    [string]$FromIP
+    [string]$ToIP
+    [int]$Size
 }
 
 $currentErrorActionPrefs = $ErrorActionPreference
@@ -63,6 +66,9 @@ do {
                 $messageTraceResults.RecipientAddress = $_."RecipientAddress"
                 $messageTraceResults.Subject = $_.Subject
                 $messageTraceResults.Status = $_.Status
+                $messageTraceResults.FromIP = $_.FromIP
+                $messageTraceResults.ToIP = $_.ToIP
+                $messageTraceResults.Size = $_.Size
 
                 $allMessageTraceResults.Add($messageTraceResults) | Out-Null
             }
